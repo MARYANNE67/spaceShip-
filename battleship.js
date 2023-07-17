@@ -127,12 +127,8 @@ fire: function(guess) {
         console.log(`This is the ship location ${i} ${this.ships[i].locations}`);
         
         var index = ship.locations.indexOf(guess);
-        var sank_before = ship.hits[i] === 'hit'
-        if(sank_before)
-        {
-            view.displayMessage("Hit before, try anothe guess !");
-            return false
-        }
+        var sank_before = ship.hits[index] === 'hit'
+
         if (index >= 0 && !sank_before) {
             ship.hits[index] = "hit";
             view.displayHit(guess);
@@ -144,6 +140,10 @@ fire: function(guess) {
                 view.displayMessage("HIT!");
             }
             return true;
+        }
+        else if(index >= 0 && sank_before){
+            view.displayMessage("Hit before, try another guess !");
+            return false;
         }
     }
     
