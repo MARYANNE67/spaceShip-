@@ -68,6 +68,22 @@
     
     background: url('miss.png') no-repeat center center ;  
 }
+
+    @media only screen and (max-width: 600px) {
+        div#board {
+            width: 100%;
+            height: auto;
+            background-size: cover;
+            padding-bottom: 100%; /* To maintain aspect ratio */
+        }
+
+        table {
+            position: relative;
+            left: 0;
+            top: 0;
+            margin: 20px auto;
+        }
+    }
 </style>
 
 </head>
